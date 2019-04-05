@@ -1,4 +1,5 @@
 import React from 'react';
+import Swiper from 'react-native-swiper';
 import {
   Image,
   Platform,
@@ -17,113 +18,76 @@ export default class HomeScreen extends React.Component {
     header: null,
   };
 
+  _firstWelcomeSlide(){
+    return(
+        <View style={styles.container}>
+          <View style={styles.welcomeContainer}>
+            <Text style={styles.textHeader}> Добро пожаловать в Med.Tech </Text>
+            <Text style={styles.text}> Добро пожаловать в Med.Tech </Text>
+            <Image style={styles.welcomeImage} source={require('../assets/images/WelcomeScreen1.jpg')} />
+            <Text style={styles.text}> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   </Text>
+          </View>
+
+        </View>
+    )
+  }
+
+  _SecondWelcomeSlide(){
+    return(
+        <View style={styles.container}>
+          <View style={styles.welcomeContainer}>
+            <Text style={styles.textHeader}> Добро пожаловать в Med.Tech </Text>
+            <Text style={styles.text}> Добро пожаловать в Med.Tech </Text>
+            <Image style={styles.welcomeImage} source={require('../assets/images/WelcomeScreen1.jpg')} />
+            <Text style={styles.text}> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   </Text>
+          </View>
+
+        </View>
+    )
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
-          </View>
-
-          <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
-
-            <Text style={styles.getStartedText}>Get started by opening</Text>
-
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-            </View>
-
-            <Text style={styles.getStartedText}>
-              Change this text and your app will automatically reload.
-            </Text>
-          </View>
-
-          <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
-
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-          </View>
-        </View>
-      </View>
-    );
+        <Swiper style={styles.wrapper}>
+          {this._firstWelcomeSlide()}
+          {this._SecondWelcomeSlide()}
+        </Swiper>
+        );
   }
 
-  _maybeRenderDevelopmentModeWarning() {
-    if (__DEV__) {
-      const learnMoreButton = (
-        <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-          Learn more
-        </Text>
-      );
-
-      return (
-        <Text style={styles.developmentModeText}>
-          Development mode is enabled, your app will be slower but you can use useful development
-          tools. {learnMoreButton}
-        </Text>
-      );
-    } else {
-      return (
-        <Text style={styles.developmentModeText}>
-          You are not in development mode, your app will run at full speed.
-        </Text>
-      );
-    }
-  }
-
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-  };
-
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    );
-  };
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    overflow: 'hidden'
   },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
+  textHeader:{
     textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 30,
+    marginTop:28,
+    color: '#195344',
   },
-  contentContainer: {
-    paddingTop: 30,
+  text:{
+    textAlign: 'center',
+    marginHorizontal:20,
+    fontSize: 22,
+    marginTop:10,
+    color: '#195344',
+
   },
   welcomeContainer: {
     alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
+    justifyContent: 'center',
+
   },
   welcomeImage: {
-    width: 100,
-    height: 80,
+    width: 350,
+    height: 200,
+    marginTop: 40,
     resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
   },
   getStartedContainer: {
     alignItems: 'center',
