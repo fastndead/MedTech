@@ -3,81 +3,84 @@ import Swiper from 'react-native-swiper';
 import {
   Image,
   Platform,
-  ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
+    Button,
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
+
+class WelcomeButton extends React.Component{
+  render() {
+    return (<Button title="Got it"
+                   style={styles.welcomeButton}
+                   onPress={()=>{}}
+            />);
+  }
+}
+
+class WelcomeSlide extends React.Component{
+
+    render(){
+
+
+      return(
+      <View style={styles.container}>
+        <View style={styles.welcomeContainer}>
+          <Text style={styles.textHeader}> {this.props.header} </Text>
+          <Text style={styles.text}> {this.props.textUpper} </Text>
+          <Image style={styles.welcomeImage} source={this.props.picUrl} />
+          <Text style={styles.text}>{this.props.textLower}</Text>
+        </View>
+      </View>
+      )
+    }
+}
+
 export default class HomeScreen extends React.Component {
-  static navigationOptions = {
-    header: null,
-  };
 
-  _firstWelcomeSlide(){
-    return(
-        <View style={styles.container}>
-          <View style={styles.welcomeContainer}>
-            <Text style={styles.textHeader}> Добро пожаловать в Med.Tech </Text>
-            <Text style={styles.text}> Добро пожаловать в Med.Tech </Text>
-            <Image style={styles.welcomeImage} source={require('../assets/images/WelcomeScreen1.jpg')} />
-            <Text style={styles.text}> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   </Text>
-          </View>
-
-        </View>
-    )
-  }
-
-  _SecondWelcomeSlide(){
-    return(
-        <View style={styles.container}>
-          <View style={styles.welcomeContainer}>
-            <Text style={styles.textHeader}> Добро пожаловать в Med.Tech </Text>
-            <Text style={styles.text}> Добро пожаловать в Med.Tech </Text>
-            <Image style={styles.welcomeImage} source={require('../assets/images/WelcomeScreen1.jpg')} />
-            <Text style={styles.text}> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   </Text>
-          </View>
-
-        </View>
-    )
-  }
-
-  _ThirdWelcomeSlide(){
-    return(
-        <View style={styles.container}>
-          <View style={styles.welcomeContainer}>
-            <Text style={styles.textHeader}> Добро пожаловать в Med.Tech </Text>
-            <Text style={styles.text}> Добро пожаловать в Med.Tech </Text>
-            <Image style={styles.welcomeImage} source={require('../assets/images/WelcomeScreen1.jpg')} />
-            <Text style={styles.text}> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   </Text>
-          </View>
-
-        </View>
-    )
-  }
+    constructor(props){
+      super(props);
+      this.props = props
+    }
 
   render() {
-    return (
-        <Swiper style={styles.wrapper}
-                loop={false}>
-          {this._firstWelcomeSlide()}
-          {this._SecondWelcomeSlide()}
-          {this._ThirdWelcomeSlide()}
+    var swiper = (
+        <Swiper style={styles.wrapper} loop={false}>
+          <WelcomeSlide picUrl={require('../assets/images/WelcomeScreen1.jpg')}
+                        textUpper='Добро пожаловать в Med.Tech'
+                        textLower='Добро пожаловать в Med.Tech'
+                        header='Добро пожаловать в Med.Tech'/>
+          <WelcomeSlide picUrl={require('../assets/images/WelcomeScreen1.jpg')}
+                        textUpper='Добро пожаловать в Med.Tech'
+                        textLower='Добро пожаловать в Med.Tech'
+                        header='Добро пожаловать в Med.Tech'/>
+          <WelcomeSlide picUrl={require('../assets/images/WelcomeScreen1.jpg')}
+                        textUpper='Добро пожаловать в Med.Tech'
+                        textLower='Добро пожаловать в Med.Tech'
+                        header='Добро пожаловать в Med.Tech'/>
         </Swiper>
-        );
+    );
+
+    if(swiper.props.index === 2){
+      return [swiper, <WelcomeButton/>]
+    }
+    return swiper;
   }
+
 
 }
 
 const styles = StyleSheet.create({
+  wrapper:{
+
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    overflow: 'hidden'
   },
   textHeader:{
     textAlign: 'center',
@@ -97,7 +100,9 @@ const styles = StyleSheet.create({
   welcomeContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-
+  },
+  welcomeButton: {
+    justifyContent: 'flex-end',
   },
   welcomeImage: {
     width: 350,
