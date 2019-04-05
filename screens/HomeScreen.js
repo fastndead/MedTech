@@ -46,11 +46,27 @@ export default class HomeScreen extends React.Component {
     )
   }
 
+  _ThirdWelcomeSlide(){
+    return(
+        <View style={styles.container}>
+          <View style={styles.welcomeContainer}>
+            <Text style={styles.textHeader}> Добро пожаловать в Med.Tech </Text>
+            <Text style={styles.text}> Добро пожаловать в Med.Tech </Text>
+            <Image style={styles.welcomeImage} source={require('../assets/images/WelcomeScreen1.jpg')} />
+            <Text style={styles.text}> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   </Text>
+          </View>
+
+        </View>
+    )
+  }
+
   render() {
     return (
-        <Swiper style={styles.wrapper}>
+        <Swiper style={styles.wrapper}
+                loop={false}>
           {this._firstWelcomeSlide()}
           {this._SecondWelcomeSlide()}
+          {this._ThirdWelcomeSlide()}
         </Swiper>
         );
   }
