@@ -6,7 +6,9 @@ import {
 } from 'react-native';
 
 import {Container, Content, List, ListItem, Thumbnail, Text} from 'native-base';
-import firebase from 'firebase'
+import firebase from 'firebase';
+import 'firebase/firestore';
+
 
 var config = {
     apiKey: "AIzaSyB_kq3_yayBGD8X-QNBKmcHsM6CT9p5XEY",
@@ -27,7 +29,7 @@ export default class MainScreen extends React.Component {
     constructor(){
         super()
         this.state={
-            name: 'undefined',
+            name: undefined,
             pharmAct:'',
             indications:'',
             contraindications:'',
@@ -40,10 +42,8 @@ export default class MainScreen extends React.Component {
 
     sendOnCheck = () =>{
         const  db = firebase.firestore();
-        db.settings({
-            timestampsInSnapshots: true
-        });
-        const find =  db.collections('drugs').doc(this.state.name)
+
+        const find =  db.collection('drugs').doc(this.state.name)
             .get()
             .then(doc =>{
                 if (doc.exists){
@@ -63,9 +63,9 @@ export default class MainScreen extends React.Component {
                 <TextInput
                     style={{height: 40, borderColor: 'gray', borderWidth: 1, marginHorizontal: 30, borderRadius: 30, padding: 10}}
                     onChangeText={this.onNameChange}
-                    onSubmitEditing={
-
+                    onSubmitEditing={()=>{
                         this.sendOnCheck(this.state.name)
+                    }
                     }
                     placeholder='Search'
                 />
@@ -74,7 +74,7 @@ export default class MainScreen extends React.Component {
                         <List>
                             <ListItem>
                                 <Thumbnail square size={80} source={require('../assets/images/item1.jpg')} />
-                                <Text>{this.state.name}</Text>
+                                <Text>{this.state.pharmAct}</Text>
                             </ListItem>
                         </List>
                     </Content>
