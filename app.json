@@ -24,6 +24,10 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "androidStatusBar": {
+      "backgroundColor": "#b3b3b3"
     }
   }
+
 }

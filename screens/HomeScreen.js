@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
 
 const slides = [
     {
+        key:'slide1',
         title: 'Title 1',
         text: 'sample text',
         image: require('../assets/images/WelcomeScreen1.jpg'),
@@ -36,6 +37,7 @@ const slides = [
         backgroundColor: '#FFF',
     },
     {
+        key:'slide2',
         title: 'Title 2',
         text: 'sample text',
         image: require('../assets/images/WelcomeScreen1.jpg'),
@@ -46,6 +48,7 @@ const slides = [
         backgroundColor: '#FFF',
     },
     {
+        key:'slide3',
         title: 'Title 3',
         text: 'sample text ',
         image: require('../assets/images/WelcomeScreen1.jpg'),
@@ -62,7 +65,7 @@ export class SlideShow extends React.Component {
     _onDone = () => {
         // User finished the introduction. Show real app through
         // navigation or simply by controlling state
-        this.props.navigation.navigate('Auth')
+        this.props.navigation.navigate('MainTabNavigator')
     }
 
 

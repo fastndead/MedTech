@@ -3,16 +3,17 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
+import MainScreen from '../screens/MainScreen';
+
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+  MainScreen: MainScreen,
 });
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  tabBarLabel: 'Поиск',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -25,36 +26,13 @@ HomeStack.navigationOptions = {
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
-});
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
-    />
-  ),
-};
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
-});
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
-    />
-  ),
-};
+
+
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+
 });
