@@ -4,7 +4,7 @@ import SlideShow from '../screens/HomeScreen';
 import MainTabNavigator from './MainTabNavigator';
 
 export default createAppContainer(createSwitchNavigator({
+  MainTabNavigator: MainTabNavigator,
   HomeScreen: SlideShow,
-  MainTabNavigator: MainTabNavigator
 
 }));
