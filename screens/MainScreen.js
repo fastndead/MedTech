@@ -127,15 +127,21 @@ export default class MainScreen extends React.Component {
     };
 
     search = (name) =>{
+        var found = false
         drugs.forEach((value, index)=>{
             if(value.name === name){
                 this.setState(value)
-
+                found = true
             }
         })
-
+        if (found === false){
+            throw new Exception("FUCK")
+        }
+        
 
     };
+
+
 
 
     render() {
@@ -144,10 +150,16 @@ export default class MainScreen extends React.Component {
                 <TextInput
                     style={{height: 40,marginTop: 30, borderColor: 'gray', borderWidth: 1, marginHorizontal: 30, borderRadius: 30, padding: 10}}
                     onSubmitEditing={(event)=>{
+
                         this.onNameChange(event.nativeEvent.text);
-                         this.search(event.nativeEvent.text);
-                         this.state.displayDrug = true
+                        try{
+                            this.search(event.nativeEvent.text);
+                        }catch{
+                            this.onNameChange("Nothing found");
                         }
+                        this.state.displayDrug = true
+                        }
+                        
                     }
                     placeholder='Search'
                 />
