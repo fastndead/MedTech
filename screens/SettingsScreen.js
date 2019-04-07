@@ -12,7 +12,7 @@ import { RNS3 } from "react-native-aws3";
 
 export default class App extends React.Component {
   state = {
-    switchValue: false,
+    switchValue: true,
     hasCameraPermission: null,
     type: Camera.Constants.Type.back,
     imageuri: "",
@@ -89,18 +89,9 @@ export default class App extends React.Component {
         </View>
       );
     } else {
+      
       return (
         <View style={styles.container}>
-          <View style={styles.switchview}>
-            <Text>Show camera</Text>
-            <Switch
-              onValueChange={value => {
-                this.setState({ switchValue: value });
-              }}
-              value={this.state.switchValue}
-              style={styles.switch}
-            />
-          </View>
           {this.state.switchValue ? (
             <View style={styles.cameraview}>
               {this.state.imageuri != "" ? (
@@ -119,55 +110,24 @@ export default class App extends React.Component {
                     this.camera = ref;
                   }}
                 >
-                  <View style={styles.camerabuttonview}>
-                    <TouchableOpacity
-                      style={styles.cameraButtons}
-                      onPress={this.cameraChange}
-                    >
-                      <Text
-                        style={{
-                          fontSize: 18,
-                          marginBottom: 10,
-                          color: "white"
-                        }}
-                      >
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
+                  
                 </Camera>
               )}
             </View>
           ) : (
             <View style={styles.cameraview}>
-              {this.state.url != "" ? (
-                <Text>Uploaded url : {this.state.url}</Text>
-              ) : null}
-              <Text>Camera off</Text>
             </View>
           )}
           {this.state.switchValue ? (
             <View style={styles.buttonsView}>
-              {this.state.imageuri == "" ? (
-                <View style={styles.captureButtonView}>
-                  <TouchableOpacity
-                    style={styles.cameraButtons}
-                    onPress={this.snap}
-                  >
-                    <Text
-                      style={{ fontSize: 18, marginBottom: 10, color: "white" }}
-                    >
-                      Capture
-                    </Text>
-                  </TouchableOpacity>
-                </View>
-              ) : null}
+              
               <View style={styles.captureButtonView}>
                 <TouchableOpacity
                   style={styles.cameraButtons}
                   onPress={this.upload}
                 >
                   <Text
-                    style={{ fontSize: 18, marginBottom: 10, color: "white" }}
+                    style={{ fontSize: 18, marginBottom: 10, color: "lightblue" }}
                   >
                     Upload
                   </Text>
@@ -184,7 +144,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1dd1a1",
+    backgroundColor: "white",
     alignItems: "center",
     justifyContent: "flex-start"
   },

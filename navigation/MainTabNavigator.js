@@ -6,6 +6,7 @@ import MainScreen from '../screens/MainScreen';
 import MapScreen from '../screens/MapScreen';
 import CalendarScreen from '../screens/CalendarScreen';
 import ListScreen from '../screens/ListScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 
 const Search = createStackNavigator({
   MainScreen: MainScreen,
@@ -64,7 +65,7 @@ Main.navigationOptions = {
 };
 
 const Settings = createStackNavigator({
-    MainScreen: MainScreen,
+    SettingsScreen: SettingsScreen,
 
 });
 

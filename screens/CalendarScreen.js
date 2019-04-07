@@ -25,12 +25,12 @@ export default class CalendarScreen extends React.Component {
     render() {
         return (
             <Calendar markedDates={{
-                '2019-04-16': {selected: true, marked: true, selectedColor: 'blue'},
-                '2019-04-06': {selected: true, marked: true, selectedColor: 'blue'},
-                '2019-04-25': {selected: true, marked: true, selectedColor: 'blue'},
+                '2019-04-07': {selected: true, marked: true, selectedColor: 'lightblue'},
+                '2019-04-08': {selected: true, marked: true, selectedColor: 'lightblue'},
+                '2019-04-09': {selected: true, marked: true, selectedColor: 'lightblue'},
             }}
                       onDayPress={(day) => {
-                          if(day.dateString === '2019-04-25' || day.dateString === '2019-04-16' || day.dateString === '2019-04-06' ){
+                          if(day.dateString === '2019-04-07' || day.dateString === '2019-04-08' || day.dateString === '2019-04-09' ){
                               this.props.navigation.navigate('Main')
 
                           }
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: 15,
-        backgroundColor: '#fff',
+        backgroundColor: 'lightblue',
     },
     title:{
     }

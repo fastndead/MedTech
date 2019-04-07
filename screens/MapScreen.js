@@ -18,8 +18,9 @@ export default class MapScreen extends React.Component {
         mapRegion: null,
         hasLocationPermissions: false,
         locationResult: null,
-        location: {coords: { latitude: 51.5188328, longitude: 46.02015273}, coords2:{latitude: 51.522759, longitude: 46.0198429}},
+        location: {coords: { latitude: 51.5188328, longitude: 46.02015273}},
         location2: { coords:{latitude: 51.522759, longitude: 46.0198429}},
+        location3: { coords:{latitude: 51.5210693, longitude: 46.0201514}},
         
       };
     
@@ -76,7 +77,12 @@ export default class MapScreen extends React.Component {
                 coordinate={this.state.location2.coords}
                 title="Домашняя аптека"
                 description="Ближайшая доступная аптека"
-               
+                />
+
+                <MapView.Marker
+                coordinate={this.state.location3.coords}
+                title=""
+                description=""
                 />
                 </MapView>  
             }
