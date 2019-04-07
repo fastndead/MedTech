@@ -82,10 +82,10 @@ Settings.navigationOptions = {
 
 
 export default createBottomTabNavigator({
-    Search,
-    Calendar,
-    Main,
-    Map,
-    Settings,
+    Search: Search,
+    Calendar:Calendar,
+    Main: Main,
+    Map: Map,
+    Settings: Settings,
 
 });
