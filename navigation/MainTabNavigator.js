@@ -70,11 +70,11 @@ const Settings = createStackNavigator({
 });
 
 Settings.navigationOptions = {
-  tabBarLabel: 'Настройки',
+  tabBarLabel: 'Камера',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={'md-settings'}
+      name={'md-camera'}
 
     />
   ),

@@ -17,7 +17,7 @@ import {Container, Content, Card,CardItem, ListItem, Thumbnail, Text} from 'nati
 
 export default class ListScreen extends React.Component {
     static navigationOptions = {
-        title: 'Все медикаменты',
+        title: 'Ваши медикаменты',
     };
 
 
