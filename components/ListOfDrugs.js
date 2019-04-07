@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, SectionList } from 'react-native';
-import {Container, Content, Card,CardItem, ListItem, Thumbnail} from 'native-base';
+import {Container, Content, Card,CardItem, ListItem, Thumbnail, Body} from 'native-base';
 
 
 class SectionListItem extends React.Component{
@@ -9,13 +9,19 @@ class SectionListItem extends React.Component{
        return (
            <View style={styles.drugView}>
                <Card style={styles.drugCard}>
-                   <Thumbnail square source={this.props.item.picUri}/>
-                   <Text note>Название </Text>
-                   <Text style={styles.listItemText}> {this.props.item.name} </Text>
-                   <Text note>Фармакалогическое действие </Text>
-                   <Text style={styles.listItemText}> {this.props.item.pharmAct} </Text>
-                   <Text note>Показания </Text>
-                   <Text style={styles.listItemText}> {this.props.item.indications} </Text>
+                   <CardItem header>
+                       <Thumbnail square size={300} source={this.props.item.picUri}/>
+                       <Text style={styles.listItemText}> {this.props.item.name} </Text>
+                   </CardItem>
+
+                   <CardItem bordered>
+                       <Body>
+                           <Text style={styles.listItemText}>Фармакалогическое действие </Text>
+                           <Text  note> {this.props.item.pharmAct} </Text>
+                           <Text style={styles.listItemText}>Показания </Text>
+                           <Text note > {this.props.item.indications} </Text>
+                       </Body>
+                   </CardItem>
                </Card>
            </View>
        )
@@ -64,8 +70,6 @@ const styles= {
         flexDirection: 'column',
     },
     listItemText:{
-        fontSize: 20,
-        marginHorizontal: 20,
-
+        fontSize: 16,
     }
 };

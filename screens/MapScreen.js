@@ -52,8 +52,6 @@ export default class MapScreen extends React.Component {
       render() {
         return (
           <View style={styles.container}>
-
-            
             {
               this.state.locationResult === null ?
               <Text>Поиск вашей локации...</Text> :

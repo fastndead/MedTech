@@ -5,6 +5,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import MainScreen from '../screens/MainScreen';
 import MapScreen from '../screens/MapScreen';
 import CalendarScreen from '../screens/CalendarScreen';
+import ListScreen from '../screens/ListScreen';
 
 const Search = createStackNavigator({
   MainScreen: MainScreen,
@@ -49,7 +50,7 @@ Calendar.navigationOptions = {
 };
 
 const Main = createStackNavigator({
-    MainScreen: MainScreen,
+    ListScreen: ListScreen,
 });
 
 Main.navigationOptions = {

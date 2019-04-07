@@ -30,8 +30,11 @@ export default class CalendarScreen extends React.Component {
                 '2019-04-25': {selected: true, marked: true, selectedColor: 'blue'},
             }}
                       onDayPress={(day) => {
+                          if(day.dateString === '2019-04-25' || day.dateString === '2019-04-16' || day.dateString === '2019-04-06' ){
 
-                      }}/>
+                          }
+                      }
+                      }/>
         )
     }
 }
