@@ -1,13 +1,10 @@
 import React from 'react';
-import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
 import MainScreen from '../screens/MainScreen';
 import MapScreen from '../screens/MapScreen';
-
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import CalendarScreen from '../screens/CalendarScreen';
 
 const Search = createStackNavigator({
   MainScreen: MainScreen,
@@ -38,7 +35,7 @@ Map.navigationOptions = {
 };
 
 const Calendar = createStackNavigator({
-    MainScreen: MainScreen,
+    CalendarScreen: CalendarScreen,
 });
 
 Calendar.navigationOptions = {
