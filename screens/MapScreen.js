@@ -81,8 +81,8 @@ export default class MapScreen extends React.Component {
 
                 <MapView.Marker
                 coordinate={this.state.location3.coords}
-                title=""
-                description=""
+                title="Саратовская областная детская клиническая больница"
+                
                 />
                 </MapView>  
             }
